@@ -1,0 +1,13 @@
+<h1>Notes</h1>
+
+<%= link_to 'New Note', new_note_path %>
+
+<ul>
+  <% @notes.each do |note| %>
+    <li>
+      <%= link_to note.title, note %>
+      <%= link_to 'Editar', note_path(note)%>
+      <%= link_to 'Excluir', note_path(note), data: {'turbo-method': :delete, 'turbo-confirm': 'Tem certeza disso?' } %>
+    </li>
+  <% end %>
+</ul>
